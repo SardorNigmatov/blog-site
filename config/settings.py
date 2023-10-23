@@ -14,14 +14,15 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+# from dotenv import dotenv_values
+# config = dotenv_values(".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config.get("SECRET_KEY")
+# SECRET_KEY = config.get("SECRET_KEY")
+SECRET_KEY = 'django-insecure-kgm^5hcw3(*x##3(x5n==07$@bivzufz09-k!+!u#9gczvk(9y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,17 +81,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config.get("NAME"),
+#         'USER': config.get("USER"),
+#         'PASSWORD': config.get("PASSWORD"),
+#         'HOST':config.get("HOST"),
+#         'PORT':config.get("PORT"),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config.get("NAME"),
-        'USER': config.get("USER"),
-        'PASSWORD': config.get("PASSWORD"),
-        'HOST':config.get("HOST"),
-        'PORT':config.get("PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
